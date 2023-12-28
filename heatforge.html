@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heatforge::Heatforge</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="top">
+            <p class="logo"><a href="index.html">Heatforge</a></p>
+            <p class="version">v0.6.4a <span class="white">Noel Nimstad</span></p>
+            <a class="github" target="_blank" href="https://github.com/NoelNimstad/HEATFORGE"></a>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <b><span class="gray">§</span> Engine</b>
+                <a>heatforge<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>renderer<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>window<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Text</b>
+                <a>font<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>hfont<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>text<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Entities</b>
+                <a>entity<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>collider<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> I/O</b>
+                <a>readfile<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Image</b>
+                <a>spritesheet<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>tile<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a>tilemap<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Data</b>
+                <a>vector<span class="gray">.</span><span class="darkblue">h</span></a>
+            </div>
+            <div class="middle">
+                <h2><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Heatforge</h2>
+                <p class="parameters"><span class="darkblue">char</span> <span class="red">const *</span> title<span class="gray">,</span> 
+                <span class="darkblue">int</span> windowWidth</span><span class="gray">,</span> 
+                <span class="darkblue">int</span> windowHeight</span><span class="gray">,</span>
+                <span class="darkblue">int</span> renderingScale</span><span class="gray">,</span>
+                <span class="darkblue">int</span> frameTime</span></p>
+                <h3><span class="gray">§</span> Description</h3>
+                <p>The Heatforge class functions as the main class, internal rendering is routed through the Heatforge class, and some external rendering too. The Heatforge class is needed for your game to function and is core to the Heatforge game engine.</p>
+                <h3><span class="gray">§</span> Public members</h3>
+                <ul>
+                    <li><span class="darkblue">void </span>Start()</li>
+                    <li><span class="darkblue">void </span>End()</li>
+                    <li><span class="darkblue">void </span>Clear()</li>
+                    <li><span class="darkblue">void </span>Update()</li>
+                    <li><span class="darkblue">void </span>DoVSync(<span class="darkblue">bool </span> state)</li>
+                    <li><span class="darkblue">void </span>Hook(<span class="gray">std::</span><span class="darkblue">function</span><<span class="darkblue">void</span>()> hook)</li>
+                    <li><span class="gray">Heatforge::</span><span class="darkblue">Spritesheet </span>LoadSpritesheet(<span class="darkblue">char </span><span class="red"> const * </span> path<span class="gray">,</span> <span class="darkblue">int </span> tileWidth<span class="gray">,</span> <span class="darkblue">int </span> tileHeight)</li>
+                    <li><span class="darkblue">bool </span>running <span class="gray">= true</span></li>
+                    <li><span class="darkblue">int </span>clearColor<span class="gray">[</span><span class="darkblue">3</span><span class="gray">] = { 0, 0, 0 }</span></li>
+                    <li><span class="darkblue">Uint32 </span>delta</li>
+                    <li><span class="gray">std::</span><span class="darkblue">unordered_map<span class="gray"><</span><span class="darkblue">int</span><span class="gray">,</span> <span class="darkblue">bool</span><span class="gray">></span> </span>inputs</li>
+                    <li><span class="gray">std::</span><span class="darkblue">unordered_map<span class="gray"><</span><span class="darkblue">char</span><span class="gray">,</span> <span class="darkblue">int</span><span class="gray">></span> </span>keys</li>
+                    <li><span class="gray">Heatforge::</span><span class="darkblue">Vector2 </span>ZERO<span class="gray">(0, 0)</span></li>
+                </ul>
+                <h3><span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>Start()</span></h3>
+                <p>Starts the engine's internal frame loop, which gathers input, calls hooks and calculates delta time. Will run until <code><span class="darkblue">bool </span>running <span class="gray"></span></code> is false. Generally called inside the <code><span class="darkblue">int </span> main()</code> function. See code example at <span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>End()</span>.</p>
+                <h3><span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>End()</span></h3>
+                <p>Runs cleanup, generally after <code><span class="darkblue">bool </span>running <span class="gray"></span></code> is set to false. Usually put in the <code><span class="darkblue">int </span> main()</code> function after the <code><span class="darkblue">void </span>Start()</code> function.</p>
+                <div class="code">
+                <pre class="code">
+<span class="gray">Heatforge::</span><span class="darkblue">Heatforge </span>_(<span class="yellow">"demo"</span>, <span class="green">320</span>, <span class="green">240</span>, <span class="green">3</span>, <span class="green">16</span>);
+<span class="darkblue">int </span>main()
+{
+    _.Start();
+    _.End();
+}</pre>
+                </div>
+                <h3><span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>Clear()</span></h3>
+                <p>Clears the screen with the <code><span class="darkblue">int </span>clearColor<span class="gray">[</span><span class="darkblue">3</span><span class="gray">]</code> variable, which is by default black. See code example at <span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>Update()</span>.</p>
+                <h3><span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>Update()</span></h3>
+                <p>Pushes render instructions made to the screen, showing the "present".</p>
+                <div class="code">
+                <pre class="code">
+<span class="gray">Heatforge::</span><span class="darkblue">Heatforge </span>_(<span class="yellow">"demo"</span>, <span class="green">320</span>, <span class="green">240</span>, <span class="green">3</span>, <span class="green">16</span>);
+<span class="darkblue">void </span>Draw() <span class="gray">// assuming Draw() is a hooked function</span>
+{
+    _.Clear();
+    _.Update();
+}</pre>
+                </div>
+                <h3><span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>DoVSync(<span class="darkblue">bool </span> state)</span></h3>
+                <p>Enables or disables VSync.</p>
+                <h3><span class="gray">¶</span><span class="member"> <span class="darkblue">void </span>Hook(<span class="gray">std::</span><span class="darkblue">function</span><<span class="darkblue">void</span>()> hook)</span></h3>
+                <p>Hooks a function into the engine's main loop, calling each hook once per frame.</p>
+                <div class="code">
+                <pre class="code">
+<span class="gray">// Simple program that will write "frame" to the console once every 60th of a second.</span>
+
+<span class="gray">Heatforge::</span><span class="darkblue">Heatforge </span>_(<span class="yellow">"demo"</span>, <span class="green">320</span>, <span class="green">240</span>, <span class="green">3</span>, <span class="green">16</span>);
+
+<span class="darkblue">void </span>Frame() <span class="gray"></span>
+{
+    <span class="gray">std::</span>cout << <span class="yellow">"frame"</span> << <span class="gray">std::</span>endl;
+}
+
+<span class="darkblue">int </span>main()
+{
+    _.Hook(<span class="red">&</span>Frame);
+    _.Start();
+    _.End();
+}</pre>
+</div>
+                <h3><span class="gray">¶ </span><span class="member"><span class="gray">Heatforge::</span><span class="darkblue">Spritesheet </span>LoadSpritesheet(<span class="darkblue">char </span><span class="red"> const * </span> path<span class="gray">,</span> <span class="darkblue">int </span> tileWidth<span class="gray">,</span> <span class="darkblue">int </span> tileHeight)</span></h3>
+                <p>Loads a png image from the path <code><span class="darkblue">char </span><span class="red"> const * </span> path</code> as a spritesheet and sets up tiling every <code><span class="darkblue">int </span> tileWidth</code> and <code><span class="darkblue">int </span> tileHeight</code>.
+                If you are loading a single image, set <code><span class="darkblue">int </span> tileWidth</code> and <code><span class="darkblue">int </span> tileHeight</code> to the image's width and height respectively.</p>
+                <div class="code">
+<pre class="code">
+<span class="gray">Heatforge::</span><span class="darkblue">Heatforge </span>_(<span class="yellow">"demo"</span>, <span class="green">320</span>, <span class="green">240</span>, <span class="green">3</span>, <span class="green">16</span>);
+<span class="gray">Heatforge::</span><span class="darkblue">Spritesheet </span>player = _.LoadSpritesheet(<span class="yellow">"path/to/player.png"</span>, <span class="green">20</span>, <span class="green">20</span>);
+</pre>
+                </div>
+                <h3><span class="gray">¶ </span><span class="member"><span class="darkblue">bool </span>running</span></h3>
+                <p>By default set to true, if <code><span class="darkblue">bool </span>running</code> is ever set to false, the Start function will terminate giving way to cleanup and/or exit code, like <code><span class="darkblue">void </span>End()</code>.</p>
+                <h3><span class="gray">¶ </span><span class="member"><span class="darkblue">int </span>clearColor<span class="gray">[</span><span class="darkblue">3</span><span class="gray">]</span></span></h3>
+                <p>By default set to <code><span class="gray">{ 0, 0, 0 }</span></code> (black). This is the color which the <code><span class="darkblue">void </span>Clear()</code> function uses to clear the screen with, in other words, the background color of the game.</p>
+                <h3><span class="gray">¶ </span><span class="member"><span class="darkblue">Uint32</span> delta</span></h3>
+                <p>The game's delta time in ms (between frames). Calculated within the "main" function started by <code><span class="darkblue">void </span>Start()</code>.</p>
+                <h3><span class="gray">¶ </span><span class="member"><span class="gray">std::</span><span class="darkblue">unordered_map<span class="gray"><</span><span class="darkblue">int</span><span class="gray">,</span> <span class="darkblue">bool</span><span class="gray">></span> </span>inputs</span></h3>
+                <p>Keyboard inputs as a <code><span class="darkblue">bool</span></code> stored by SDL's keyboard ids. See code example at <span class="gray">¶ </span><span class="member"><span class="gray">std::</span><span class="darkblue">unordered_map<span class="gray"><</span><span class="red">const </span><span class="darkblue">wchar_t</span><span class="red"> *</span><span class="gray">,</span> <span class="darkblue">int</span><span class="gray">></span> </span>keys</span>.</p>
+                <h3><span class="gray">¶ </span><span class="member"><span class="gray">std::</span><span class="darkblue">unordered_map<span class="gray"><</span><span class="red">const </span><span class="darkblue">wchar_t</span><span class="red"> *</span><span class="gray">,</span> <span class="darkblue">int</span><span class="gray">></span> </span>keys</span></h3>
+                <p>A map mapping a string, in this case a key name, to their respective key code which can be used as a lookup in the <code><span class="gray">std::</span><span class="darkblue">unordered_map<span class="gray"><</span><span class="darkblue">int</span><span class="gray">,</span> <span class="darkblue">bool</span><span class="gray">></span> </span>inputs</code>.</p>
+                <div class="code">
+<pre class="code">
+<span class="gray">Heatforge::</span><span class="darkblue">Heatforge </span>_(<span class="yellow">"demo"</span>, <span class="green">320</span>, <span class="green">240</span>, <span class="green">3</span>, <span class="green">16</span>);
+
+<span class="darkblue">void </span>Frame()
+{
+    <span class="orange">if</span>(_.inputs[_.keys[<span class="yellow">L"w"</span>]])
+    {
+        <span class="gray">std::</span>cout << <span class="yellow">"banana"</span> << <span class="gray">std::</span>endl;
+    }
+}
+
+<span class="gray">// ...</span>
+</pre>
+                </div>
+                <h3><span class="gray">¶ </span><span class="member"><span class="gray">Heatforge::</span><span class="darkblue">Vector2</span> ZERO</span></h3>
+                <p>A Vector2 initialized as a null vector.</p>
+                <h3><span class="gray">§</span> Recommendations</h3>
+                <p>Initialize the variable as <code>_</code> globally at the top after imports to ensure that it can get used easily within hooks.</p>
+                <div class="padding"></div>
+            </div>
+            <div class="right">
+                <b><span class="gray">§</span> Setup</b>
+                <a>setup</a>
+            </div>
+        </div>
+    </body>
+</html>

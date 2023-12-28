@@ -1,0 +1,193 @@
+body 
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.top 
+{
+    background-color: rgb(40, 40, 40);
+    width: 100vw;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.logo
+{
+    margin-left: 1rem;
+    font-size: 1.5rem;  
+    font-weight: bold;
+}
+
+.logo > a 
+{
+    color: white;
+    text-decoration: none;
+}
+
+.version 
+{
+    color: rgb(150, 150, 150);
+    margin-left: 0.5rem;
+    align-self: flex-start;
+}
+
+.github 
+{
+    position: absolute;
+    right: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("github.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    filter: brightness(0) saturate(100%) invert(49%) sepia(50%) saturate(5846%) hue-rotate(218deg) brightness(103%) contrast(101%);
+}
+
+.github:hover
+{
+    filter: none;
+}
+
+.bottom
+{
+    width: 100vw;
+    height: calc(100vh - 3rem);
+    display: flex;
+}
+
+.left 
+{
+    background-color: rgb(40, 40, 40);
+    width: 8rem;
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    overflow: scroll;
+}
+
+.left > a 
+{
+    cursor: pointer;
+}
+
+.left > b:not(:first-child)
+{
+    margin-top: 1.5rem;
+}
+
+.middle 
+{   
+    background-color: rgb(30, 30, 30);
+    flex: 1;
+    height: 100%;
+    padding: 1rem 2rem;
+    overflow: scroll;
+    position: relative;
+}
+
+.right 
+{
+    background-color: rgb(40, 40, 40);
+    width: 8rem;
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    overflow: scroll;
+}
+
+.right > h2 
+{
+    margin-top: 0;
+}
+
+.left > a 
+{
+    color: white;
+    text-decoration: none;
+}
+
+.parameters
+{
+    margin-top: -1rem;
+    font-weight: bold;
+}
+
+.white 
+{
+    color: white;
+}
+
+.gray
+{
+    color: rgb(150, 150, 150);
+}
+
+.orange
+{
+    color: rgb(244, 126, 37);
+}
+
+.darkblue
+{
+    color: #5e76ff;
+}
+
+.red 
+{
+    color: #ff635e;
+}
+
+.yellow 
+{
+    color: rgb(244, 189, 37);
+}
+
+.green
+{
+    color: rgb(170, 236, 72);
+}
+
+ul > li 
+{
+    font-family: monospace;
+}
+
+h3 
+{
+    margin-top: 2.5rem;
+    margin-bottom: -0.5rem;
+}
+
+.member
+{
+    font-family: monospace;
+}
+
+div.code 
+{
+    width: fit-content;
+    background-color: rgb(10, 10, 10);
+    border-radius: 0.2rem;
+}
+
+pre.code 
+{
+    padding: 1rem 1rem;
+}
+
+.padding 
+{
+    height: 2rem;
+}
