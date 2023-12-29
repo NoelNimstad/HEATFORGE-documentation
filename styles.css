@@ -171,6 +171,8 @@ body
 
 ul > li 
 {
+    font-weight: normal;
+    font-size: 1rem;
     font-family: monospace;
 }
 
@@ -194,10 +196,29 @@ div.code
 
 pre.code 
 {
+    font-weight: normal;
+    font-size: 1rem;
     padding: 1rem 1rem;
 }
 
 .padding 
 {
     height: 2rem;
+}
+
+code 
+{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.white > a 
+{
+    color: white;
+    text-decoration: none;
+}
+
+.version > .white > a:hover 
+{
+    color: rgb(170, 236, 72);
 }
