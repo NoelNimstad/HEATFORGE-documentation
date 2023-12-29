@@ -222,3 +222,8 @@ code
 {
     color: rgb(170, 236, 72);
 }
+
+h3 > code 
+{
+    font-size: 1.25rem;
+}
