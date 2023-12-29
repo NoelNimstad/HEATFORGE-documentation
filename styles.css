@@ -31,6 +31,11 @@ body
     text-decoration: none;
 }
 
+.logo > a:hover 
+{
+    color: #ff635e;
+}
+
 .version 
 {
     color: rgb(150, 150, 150);
@@ -70,7 +75,6 @@ body
     height: calc(100% - 2rem);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     padding: 1rem;
     overflow: scroll;
 }
@@ -78,6 +82,12 @@ body
 .left > a 
 {
     cursor: pointer;
+    padding: 0.25rem 0;
+}
+
+.left > a:hover 
+{
+    color: #5e76ff;
 }
 
 .left > b:not(:first-child)
