@@ -68,7 +68,7 @@ body
     display: flex;
 }
 
-.left 
+.left, .right
 {
     background-color: rgb(40, 40, 40);
     width: 8rem;
@@ -79,20 +79,26 @@ body
     overflow: scroll;
 }
 
-.left > a 
+.left > a, .right > a
 {
     cursor: pointer;
     padding: 0.25rem 0;
 }
 
-.left > a:hover 
+.left > a:hover, .right > a:hover
 {
     color: #5e76ff;
 }
 
-.left > b:not(:first-child)
+.left > b:not(:first-child), .right > b:not(:first-child)
 {
     margin-top: 1.5rem;
+}
+
+.left > a, .right > a
+{
+    color: white;
+    text-decoration: none;
 }
 
 .middle 
@@ -103,29 +109,6 @@ body
     padding: 1rem 2rem;
     overflow: scroll;
     position: relative;
-}
-
-.right 
-{
-    background-color: rgb(40, 40, 40);
-    width: 8rem;
-    height: calc(100% - 2rem);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
-    overflow: scroll;
-}
-
-.right > h2 
-{
-    margin-top: 0;
-}
-
-.left > a 
-{
-    color: white;
-    text-decoration: none;
 }
 
 .parameters
@@ -225,5 +208,5 @@ code
 
 h3 > code 
 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }

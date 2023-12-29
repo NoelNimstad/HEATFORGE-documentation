@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heatforge::Font</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="top">
+            <p class="logo"><a href="index.html">Heatforge</a></p>
+            <p class="version">v0.6.4a <span class="white"><a href="https://noel.nimstad.com" target="_blank">Noel Nimstad</a></span></p>
+            <a class="github" target="_blank" href="https://github.com/NoelNimstad/HEATFORGE"></a>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <b><span class="gray">§</span> Engine</b>
+                <a href="heatforge.html">heatforge<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="renderer.html">renderer<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="window.html">window<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Text</b>
+                <a href="font.html">font<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="hfont.html">hfont<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="text.html">text<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Entities</b>
+                <a href="entity.html">entity<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="collider.html">collider<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> I/O</b>
+                <a href="readfile.html">readfile<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Image</b>
+                <a href="spritesheet.html">spritesheet<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="tile.html">tile<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="tilemap.html">tilemap<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Data</b>
+                <a href="vector.html">vector<span class="gray">.</span><span class="darkblue">h</span></a>
+            </div>
+            <div class="middle">
+                <h2><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Font</h2>
+                <p class="parameters"><span class="gray">std::</span><span class="darkblue">string</span> path</span><span class="gray">,</span> 
+                <span class="gray">Heatforge::</span><span class="darkblue">Heatforge</span> <span class="red">*</span> engine</p>
+                <h3><span class="gray">§</span> Description</h3>
+                <p>Class that loads HFont <span class="gray">(HeatFont)</span> files into a game such as to allow the ability to render text to the screen. MiniStad.hfont is available for download at <span class="gray">[coming soon]</span>.</p>
+                <h3><span class="gray">§</span> Public members</h3>
+                <ul>
+                    <li><span class="darkblue">void </span>Draw(<span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>> <span class="red">*</span> integerArray, <span class="gray">Heatforge::</span><span class="darkblue">Vector2</span> <span class="red">*</span> position)</li>
+                    <li><span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>> ConvertStringToIntArray(<span class="gray">std::</span><span class="darkblue">wstring</span> string)</li>
+                </ul>
+                <h3><span class="gray">¶</span><code> <span class="darkblue">void </span>Draw(<span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>> <span class="red">*</span> integerArray, <span class="gray">Heatforge::</span><span class="darkblue">Vector2</span> <span class="red">*</span> position)</code></h3>
+                <p>Draws text from an <code><span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>></code> containing character indexes and a <code><span class="darkblue">class </span><span class="gray">Heatforge::</span><span class="darkblue">Vector2</span></code> providing the base position. See code example at <span class="gray">¶ </span><code><span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>> ConvertStringToIntArray(<span class="gray">std::</span><span class="darkblue">wstring</span> string)</code>.</p>
+                <h3><span class="gray">¶</span><code> <span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>> ConvertStringToIntArray(<span class="gray">std::</span><span class="darkblue">wstring</span> string)</code></h3>
+                <p>Converts a <code><span class="gray">std::</span><span class="darkblue">wstring</span></code> to a <code><span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>></code> from information loaded from the HeatFont file.</p>
+                <div class="code">
+<pre class="code">
+<span class="gray">Heatforge::</span><span class="darkblue">Heatforge </span>_(<span class="yellow">"demo"</span>, <span class="green">320</span>, <span class="green">240</span>, <span class="green">3</span>, <span class="green">16</span>);
+<span class="gray">Heatforge::</span><span class="darkblue">Font</span> font(<span class="yellow">L"path/to/font.hfont"</span>, <span class="red">&</span>_);
+
+<span class="gray">Heatforge::</span><span class="darkblue">Vector2</span> position(<span class="green">100</span>, <span class="green">100</span>);
+<span class="gray">std::</span><span class="darkblue">vector</span><<span class="darkblue">int</span>> text = font.ConvertStringToIntArray(<span class="yellow">L"banana"</span>);
+
+<span class="darkblue">void </span>Frame()
+{
+    _.Clear();
+
+    font.Draw(<span class="red">&</span>text, <span class="red">&</span>position);
+
+    _.Update();
+}
+
+<span class="gray">// ...</span>
+</pre>
+                </div>
+                <div class="padding"></div>
+            </div>
+            <div class="right">
+                <b><span class="gray">§</span> Setup</b>
+                <a>Setup</a>
+                <b><span class="gray">§</span> HFont</b>
+                <a>Making a font</a>
+            </div>
+        </div>
+    </body>
+</html>
