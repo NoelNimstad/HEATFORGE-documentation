@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heatforge::Window</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="top">
+            <p class="logo"><a href="index.html">Heatforge</a></p>
+            <p class="version">v0.6.4a <span class="white"><a href="https://noel.nimstad.com" target="_blank">Noel Nimstad</a></span></p>
+            <a class="github" target="_blank" href="https://github.com/NoelNimstad/HEATFORGE"></a>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <b><span class="gray">§</span> Engine</b>
+                <a href="heatforge.html">heatforge<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="renderer.html">renderer<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="window.html">window<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Text</b>
+                <a href="font.html">font<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="hfont.html">hfont<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="text.html">text<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Entities</b>
+                <a href="entity.html">entity<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="collider.html">collider<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> I/O</b>
+                <a href="readfile.html">readfile<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Image</b>
+                <a href="spritesheet.html">spritesheet<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="tile.html">tile<span class="gray">.</span><span class="darkblue">h</span></a>
+                <a href="tilemap.html">tilemap<span class="gray">.</span><span class="darkblue">h</span></a>
+                <b><span class="gray">§</span> Data</b>
+                <a href="vector.html">vector<span class="gray">.</span><span class="darkblue">h</span></a>
+            </div>
+            <div class="middle">
+                <h2><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Window</h2>
+                <p class="parameters"><span class="darkblue">int</span> width</span><span class="gray">,</span> 
+                <span class="darkblue">int</span> height</span><span class="gray">,</span>
+                <span class="darkblue">char</span> <span class="red">const *</span> title</p>
+                <h3><span class="gray">§</span> Description</h3>
+                <p>Internal class that acts as a wrapper over <code><span class="darkblue">SDL_Window</span></code>.</p>
+                <h3><span class="gray">§</span> Public members</h3>
+                <ul>
+                    <li><span class="darkblue">int </span>WIDTH</li>
+                    <li><span class="darkblue">int </span>HEIGHT</li>
+                    <li><span class="gray">Heatforge::</span><span class="darkblue">Renderer</span> <span class="red">*</span> CreateRenderer()</li>
+                    <li><span class="darkblue">SDL_Window</span> <span class="red">* </span> renderer</li>
+                    <li>~Window()</li>
+                </ul>
+                <h3><span class="gray">¶</span><code> <span class="darkblue">int </span> WIDTH</code></h3>
+                <p>The window's width in pixels.</p>
+                <h3><span class="gray">¶</span><code> <span class="darkblue">SDL_Window</span> <span class="red">*</span> window</code></h3>
+                <p>The window's height in pixels.</p>
+                <h3><span class="gray">¶</span><code> <span class="gray">Heatforge::</span><span class="darkblue">Renderer</span> <span class="red">*</span> CreateRenderer()</code></h3>
+                <p>Method used by the <code><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Heatforge</code> class to construct a new <code><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Renderer</code> through the <code><span class="darkblue">SDL_Renderer </span><span class="red">*</span> SDL_CreateRenderer()</code> method.</p>
+                <h3><span class="gray">¶</span><code> <span class="darkblue">int </span> HEIGHT</code></h3>
+                <p>Reference to a <code><span class="darkblue">SDL_Window</span></code> used by the <code><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Heatforge</code> class to perform rendering and gathering functions such as <code><span class="gray">Heatforge::</span><span class="darkblue">Spritesheet </span>LoadSpritesheet(<span class="darkblue">char </span><span class="red"> const * </span> path<span class="gray">,</span> <span class="darkblue">int </span> tileWidth<span class="gray">,</span> <span class="darkblue">int </span> tileHeight)</code>.</p>
+                <h3><span class="gray">¶</span><code> ~Window()</code></h3>
+                <p>Class destructor, calls <code><span class="darkblue">void </span>SDL_DestroyWindow()</code> on self. Handeled automatically through <code><span class="darkblue">class</span> <span class="gray">Heatforge::</span>Heatforge</code>.</p>
+                <div class="padding"></div>
+            </div>
+            <div class="right">
+                <b><span class="gray">§</span> Setup</b>
+                <a>setup</a>
+            </div>
+        </div>
+    </body>
+</html>
